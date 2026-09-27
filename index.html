@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>يوسف للألوميتال والمطابخ | تفصيل وصيانة مطابخ وشبابيك</title>
+<title id="metaTitle">يوسف للألوميتال والمطابخ | تفصيل وصيانة مطابخ وشبابيك</title>
 <meta name="description" content="خبرة 5 سنوات في تصنيع وتركيب المطابخ وشبابيك الألوميتال بأعلى جودة ودقة في المقاسات. اطلب معاينة مجانية الآن.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,14 +70,13 @@
   .bracket::after { bottom: -1px; left: -1px; border-right: none; border-top: none; }
 
   header {
-    padding: 22px 0;
+    padding: 18px 0;
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
     background: var(--bg);
     z-index: 100;
     backdrop-filter: blur(8px);
-    background-opacity: 0.9;
   }
   header .wrap {
     display: flex;
@@ -85,12 +84,31 @@
     justify-content: space-between;
     gap: 12px;
   }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
   .brand {
     font-weight: 800;
     font-size: 1.05rem;
     letter-spacing: -0.01em;
   }
   .brand span { color: var(--brass); }
+  
+  /* تنسيق قائمة اختيار اللغات */
+  .lang-select {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .lang-select:focus { outline: none; border-color: var(--brass); }
+
   .nav-cta {
     font-size: 0.85rem;
     font-weight: 700;
@@ -256,7 +274,7 @@
   .contact-row span:first-child { color: var(--text-dim); }
   .contact-row a { color: var(--text); font-weight: 700; text-decoration: none; }
 
-  /* زر واتساب عائم لتسهيل التواصل */
+  /* زر واتساب عائم */
   .whatsapp-float {
     position: fixed;
     bottom: 25px;
@@ -300,43 +318,52 @@
 
 <header>
   <div class="wrap">
-    <div class="brand">يوسف <span>للألوميتال والمطابخ</span></div>
-    <a class="nav-cta" href="https://wa.me/201208197770" target="_blank" rel="noopener">واتساب مباشر</a>
+    <div class="brand" data-i18n="brand">يوسف <span>للألوميتال والمطابخ</span></div>
+    <div class="header-actions">
+      <!-- قائمة اختيار اللغة -->
+      <select id="langSwitcher" class="lang-select" onchange="changeLanguage(this.value)">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="es">Español</option>
+      </select>
+      <a class="nav-cta" href="https://wa.me/201208197770" target="_blank" rel="noopener" data-i18n="nav_cta">واتساب مباشر</a>
+    </div>
   </div>
 </header>
 
 <div class="wrap">
   <div class="hero">
-    <h1>مطابخ وشبابيك ألوميتال، مظبوطة من المقاس للتركيب</h1>
-    <p>خبرة 5 سنين في تجميع وصناعة المطابخ وشبابيك الألوميتال. من المعاينة لحد آخر مسمار، الشغل بيتسلّمك جاهز ومضمون.</p>
+    <h1 data-i18n="hero_title">مطابخ وشبابيك ألوميتال، مظبوطة من المقاس للتركيب</h1>
+    <p data-i18n="hero_desc">خبرة 5 سنين في تجميع وصناعة المطابخ وشبابيك الألوميتال. من المعاينة لحد آخر مسمار، الشغل بيتسلّمك جاهز ومضمون.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="https://wa.me/201208197770" target="_blank" rel="noopener">اطلب معاينة مجانية</a>
-      <a class="btn-secondary" href="#services">شوف الخدمات</a>
+      <a class="btn-primary" href="https://wa.me/201208197770" target="_blank" rel="noopener" data-i18n="btn_inspection">اطلب معاينة مجانية</a>
+      <a class="btn-secondary" href="#services" data-i18n="btn_services">شوف الخدمات</a>
     </div>
   </div>
 
   <div class="strip bracket">
     <span>💬</span>
-    <div><b>رد سريع على واتساب.</b> ابعت صورة أو مقاس مكانك، وهترجعلك بسعر تقريبي في نفس اليوم.</div>
+    <div><b data-i18n="strip_bold">رد سريع على واتساب.</b> <span data-i18n="strip_text">ابعت صورة أو مقاس مكانك، وهترجعلك بسعر تقريبي في نفس اليوم.</span></div>
   </div>
 </div>
 
 <section id="services">
   <div class="wrap">
-    <h2>الخدمات</h2>
-    <p class="section-lede">تنفيذ مباشر بدون وسيط، من الفكرة لحد التسليم.</p>
+    <h2 data-i18n="services_heading">الخدمات</h2>
+    <p class="section-lede" data-i18n="services_lede">تنفيذ مباشر بدون وسيط، من الفكرة لحد التسليم.</p>
     <div class="services">
       <div class="service bracket">
-        <h3>تصنيع وتركيب مطابخ ألوميتال</h3>
-        <p>تصميم يناسب مساحتك، خامة تتحمل الاستخدام اليومي، وتركيب دقيق من غير فروق مقاسات.</p>
+        <h3 data-i18n="serv1_title">تصنيع وتركيب مطابخ ألوميتال</h3>
+        <p data-i18n="serv1_desc">تصميم يناسب مساحتك، خامة تتحمل الاستخدام اليومي، وتركيب دقيق من غير فروق مقاسات.</p>
       </div>
       <div class="service bracket">
-        <h3>تصنيع وتركيب شبابيك ألوميتال</h3>
-        <p>عزل أفضل للصوت والهوا، وتشطيب نضيف من الداخل والخارج.</p>
+        <h3 data-i18n="serv2_title">تصنيع وتركيب شبابيك ألوميتال</h3>
+        <p data-i18n="serv2_desc">عزل أفضل للصوت والهوا، وتشطيب نضيف من الداخل والخارج.</p>
       </div>
       <div class="service bracket">
-        <h3>صيانة وتعديل شغل قديم</h3>
-        <p>تغيير إكسسوارات، إصلاح مفصلات، تعديل مقاسات مطبخ أو شباك موجود بالفعل.</p>
+        <h3 data-i18n="serv3_title">صيانة وتعديل شغل قديم</h3>
+        <p data-i18n="serv3_desc">تغيير إكسسوارات، إصلاح مفصلات، تعديل مقاسات مطبخ أو شباك موجود بالفعل.</p>
       </div>
     </div>
   </div>
@@ -344,35 +371,35 @@
 
 <section>
   <div class="wrap">
-    <h2>ليه تتعامل معايا</h2>
-    <p class="section-lede">مفيش محل، بس فيه ضمانات واضحة بدل الكلام.</p>
+    <h2 data-i18n="why_heading">ليه تتعامل معايا</h2>
+    <p class="section-lede" data-i18n="why_lede">مفيش محل، بس فيه ضمانات واضحة بدل الكلام.</p>
     <div class="trust-grid">
       <div class="trust-item">
         <div class="trust-mark">✓</div>
         <div>
-          <h4>دفع مقسّم وآمن</h4>
-          <p>مقدم يغطي الخامة بس، والباقي عند التسليم — مش قبل ما تشوف الشغل.</p>
+          <h4 data-i18n="trust1_title">دفع مقسّم وآمن</h4>
+          <p data-i18n="trust1_desc">مقدم يغطي الخامة بس، والباقي عند التسليم — مش قبل ما تشوف الشغل.</p>
         </div>
       </div>
       <div class="trust-item">
         <div class="trust-mark">✓</div>
         <div>
-          <h4>صور توثق كل شغلانة</h4>
-          <p>قبل وأثناء وبعد التنفيذ، عشان تتابع كل خطوة أول بأول.</p>
+          <h4 data-i18n="trust2_title">صور توثق كل شغلانة</h4>
+          <p data-i18n="trust2_desc">قبل وأثناء وبعد التنفيذ، عشان تتابع كل خطوة أول بأول.</p>
         </div>
       </div>
       <div class="trust-item">
         <div class="trust-mark">✓</div>
         <div>
-          <h4>خامة من مصدر موثوق</h4>
-          <p>ممكن تجيب الخامة معايا من التاجر وتشوفها بعينك قبل التصنيع.</p>
+          <h4 data-i18n="trust3_title">خامة من مصدر موثوق</h4>
+          <p data-i18n="trust3_desc">ممكن تجيب الخامة معايا من التاجر وتشوفها بعينك قبل التصنيع.</p>
         </div>
       </div>
       <div class="trust-item">
         <div class="trust-mark">✓</div>
         <div>
-          <h4>تواصل مباشر</h4>
-          <p>بترد بنفسي على كل استفسار، من أول السعر لحد بعد التسليم.</p>
+          <h4 data-i18n="trust4_title">تواصل مباشر</h4>
+          <p data-i18n="trust4_desc">بترد بنفسي على كل استفسار، من أول السعر لحد بعد التسليم.</p>
         </div>
       </div>
     </div>
@@ -381,27 +408,27 @@
 
 <section>
   <div class="wrap">
-    <h2>إزاي بنشتغل</h2>
+    <h2 data-i18n="steps_heading">إزاي بنشتغل</h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
-          <h4>معاينة ومقاس</h4>
-          <p>تبعتلي صور ومقاسات مبدئية على واتساب، أو أزور المكان لو قريب.</p>
+          <h4 data-i18n="step1_title">معاينة ومقاس</h4>
+          <p data-i18n="step1_desc">تبعتلي صور ومقاسات مبدئية على واتساب، أو أزور المكان لو قريب.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div>
-          <h4>عرض سعر واضح</h4>
-          <p>سعر نهائي مكتوب، بدون مفاجآت بعد كده.</p>
+          <h4 data-i18n="step2_title">عرض سعر واضح</h4>
+          <p data-i18n="step2_desc">سعر نهائي مكتوب، بدون مفاجآت بعد كده.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div>
-          <h4>تنفيذ وتركيب</h4>
-          <p>تصنيع بالمقاس، وتركيب في المكان في الميعاد المتفق عليه.</p>
+          <h4 data-i18n="step3_title">تنفيذ وتركيب</h4>
+          <p data-i18n="step3_desc">تصنيع بالمقاس، وتركيب في المكان في الميعاد المتفق عليه.</p>
         </div>
       </div>
     </div>
@@ -411,24 +438,135 @@
 <section>
   <div class="wrap">
     <div class="contact-panel bracket">
-      <h2>عايز عرض سعر؟</h2>
-      <p>ابعت تفاصيل مكانك على واتساب، وهيوصلك رد بأقرب معاد.</p>
+      <h2 data-i18n="contact_heading">عايز عرض سعر؟</h2>
+      <p data-i18n="contact_desc">ابعت تفاصيل مكانك على واتساب، وهيوصلك رد بأقرب معاد.</p>
       <div class="contact-row">
-        <span>واتساب</span>
-        <a href="https://wa.me/201208197770" target="_blank" rel="noopener">تواصل الآن</a>
+        <span data-i18n="contact_wa">واتساب</span>
+        <a href="https://wa.me/201208197770" target="_blank" rel="noopener" data-i18n="contact_btn">تواصل الآن</a>
       </div>
       <div class="contact-row">
-        <span>مناطق الخدمة</span>
-        <span>القاهرة والجيزة</span>
+        <span data-i18n="contact_area_label">مناطق الخدمة</span>
+        <span data-i18n="contact_area_val">القاهرة والجيزة</span>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">يوسف للألوميتال والمطابخ © 2026</div>
+  <div class="wrap" data-i18n="footer">يوسف للألوميتال والمطابخ © 2026</div>
 </footer>
 
-</body>
-  </html>
-  
+<script>
+  const translations = {
+    ar: {
+      dir: "rtl",
+      brand: "يوسف <span>للألوميتال والمطابخ</span>",
+      nav_cta: "واتساب مباشر",
+      hero_title: "مطابخ وشبابيك ألوميتال، مظبوطة من المقاس للتركيب",
+      hero_desc: "خبرة 5 سنين في تجميع وصناعة المطابخ وشبابيك الألوميتال. من المعاينة لحد آخر مسمار، الشغل بيتسلّمك جاهز ومضمون.",
+      btn_inspection: "اطلب معاينة مجانية",
+      btn_services: "شوف الخدمات",
+      strip_bold: "رد سريع على واتساب.",
+      strip_text: "ابعت صورة أو مقاس مكانك، وهترجعلك بسعر تقريبي في نفس اليوم.",
+      services_heading: "الخدمات",
+      services_lede: "تنفيذ مباشر بدون وسيط، من الفكرة لحد التسليم.",
+      serv1_title: "تصنيع وتركيب مطابخ ألوميتال",
+      serv1_desc: "تصميم يناسب مساحتك، خامة تتحمل الاستخدام اليومي، وتركيب دقيق من غير فروق مقاسات.",
+      serv2_title: "تصنيع وتركيب شبابيك ألوميتال",
+      serv2_desc: "عزل أفضل للصوت والهوا، وتشطيب نضيف من الداخل والخارج.",
+      serv3_title: "صيانة وتعديل شغل قديم",
+      serv3_desc: "تغيير إكسسوارات، إصلاح مفصلات، تعديل مقاسات مطبخ أو شباك موجود بالفعل.",
+      why_heading: "ليه تتعامل معايا",
+      why_lede: "مفيش محل، بس فيه ضمانات واضحة بدل الكلام.",
+      trust1_title: "دفع مقسّم وآمن",
+      trust1_desc: "مقدم يغطي الخامة بس، والباقي عند التسليم — مش قبل ما تشوف الشغل.",
+      trust2_title: "صور توثق كل شغلانة",
+      trust2_desc: "قبل وأثناء وبعد التنفيذ، عشان تتابع كل خطوة أول بأول.",
+      trust3_title: "خامة من مصدر موثوق",
+      trust3_desc: "ممكن تجيب الخامة معايا من التاجر وتشوفها بعينك قبل التصنيع.",
+      trust4_title: "تواصل مباشر",
+      trust4_desc: "بترد بنفسي على كل استفسار، من أول السعر لحد بعد التسليم.",
+      steps_heading: "إزاي بنشتغل",
+      step1_title: "معاينة ومقاس",
+      step1_desc: "تبعتلي صور ومقاسات مبدئية على واتساب، أو أزور المكان لو قريب.",
+      step2_title: "عرض سعر واضح",
+      step2_desc: "سعر نهائي مكتوب، بدون مفاجآت بعد كده.",
+      step3_title: "تنفيذ وتركيب",
+      step3_desc: "تصنيع بالمقاس، وتركيب في المكان في الميعاد المتفق عليه.",
+      contact_heading: "عايز عرض سعر؟",
+      contact_desc: "ابعت تفاصيل مكانك على واتساب، وهيوصلك رد بأقرب معاد.",
+      contact_wa: "واتساب",
+      contact_btn: "تواصل الآن",
+      contact_area_label: "مناطق الخدمة",
+      contact_area_val: "القاهرة والجيزة",
+      footer: "يوسف للألوميتال والمطابخ © 2026"
+    },
+    en: {
+      dir: "ltr",
+      brand: "Youssef <span>Aluminum & Kitchens</span>",
+      nav_cta: "Direct WhatsApp",
+      hero_title: "Aluminum Kitchens & Windows, Precision Fit from Measurement to Installation",
+      hero_desc: "5 years of experience in assembling and crafting aluminum kitchens and windows. From inspection to the final screw, delivered ready and guaranteed.",
+      btn_inspection: "Request Free Inspection",
+      btn_services: "View Services",
+      strip_bold: "Fast WhatsApp reply.",
+      strip_text: "Send a photo or measurements of your space, and get an estimated price on the same day.",
+      services_heading: "Services",
+      services_lede: "Direct execution without intermediaries, from concept to delivery.",
+      serv1_title: "Aluminum Kitchens Manufacturing & Installation",
+      serv1_desc: "Custom design for your space, durable materials for daily use, and precise installation without sizing gaps.",
+      serv2_title: "Aluminum Windows Manufacturing & Installation",
+      serv2_desc: "Better sound and air insulation, with clean finishing inside and out.",
+      serv3_title: "Maintenance & Modification of Old Work",
+      serv3_desc: "Replacing accessories, fixing hinges, adjusting sizes for existing kitchens or windows.",
+      why_heading: "Why Work With Me",
+      why_lede: "No physical store, but clear guarantees instead of talk.",
+      trust1_title: "Split & Secure Payment",
+      trust1_desc: "A deposit covering materials only, and the rest upon delivery — not before you inspect the work.",
+      trust2_title: "Photos Documenting Every Job",
+      trust2_desc: "Before, during, and after execution, so you can track every step.",
+      trust3_title: "Trusted Source Materials",
+      trust3_desc: "You can come with me to the merchant to select and see the materials with your own eyes before manufacturing.",
+      trust4_title: "Direct Communication",
+      trust4_desc: "I personally answer every inquiry, from the initial price to post-delivery.",
+      steps_heading: "How We Work",
+      step1_title: "Inspection & Measurement",
+      step1_desc: "Send initial photos and measurements via WhatsApp, or I can visit if nearby.",
+      step2_title: "Clear Price Offer",
+      step2_desc: "Final written price, with no surprises later.",
+      step3_title: "Execution & Installation",
+      step3_desc: "Custom manufacturing and on-site installation at the agreed time.",
+      contact_heading: "Want a Price Quote?",
+      contact_desc: "Send your location details via WhatsApp and get a response soon.",
+      contact_wa: "WhatsApp",
+      contact_btn: "Contact Now",
+      contact_area_label: "Service Areas",
+      contact_area_val: "Cairo & Giza",
+      footer: "Youssef Aluminum & Kitchens © 2026"
+    },
+    ru: {
+      dir: "ltr",
+      brand: "Юссеф <span>Алюминий и Кухни</span>",
+      nav_cta: "WhatsApp",
+      hero_title: "Алюминиевые кухни и окна, точность от замеров до установки",
+      hero_desc: "5 лет опыта в сборке и изготовлении алюминиевых кухонь и окон. От замера до последнего шурупа — работа сдается готовой и надежной.",
+      btn_inspection: "Запросить замер",
+      btn_services: "Услуги",
+      strip_bold: "Быстрый ответ в WhatsApp.",
+      strip_text: "Отправьте фото или размеры вашего помещения, и получите ориентировочную цену в тот же день.",
+      services_heading: "Услуги",
+      services_lede: "Прямое выполнение без посредников, от идеи до сдачи.",
+      serv1_title: "Изготовление и установка алюминиевых кухонь",
+      serv1_desc: "Дизайн под ваше пространство, прочные материалы для ежедневного использования и точный монтаж.",
+      serv2_title: "Изготовление и установка алюминиевых окон",
+      serv2_desc: "Лучшая звуко- и теплоизоляция, аккуратная отделка изнутри и снаружи.",
+      serv3_title: "Ремонт и модификация старых изделий",
+      serv3_desc: "Замена фурнитуры, починка петель, подгонка размеров существующих кухонь или окон.",
+      why_heading: "Почему выбирают меня",
+      why_lede: "Нет магазина, но есть четкие гарантии вместо слов.",
+      trust1_title: "Поэтапная и безопасная оплата",
+      trust1_desc: "Предоплата только за материалы, остальное — при получении и осмотре работы.",
+      trust2_title: "Фотоотчет о каждом заказе",
+      trust2_desc: "До, во время и после выполнения, чтобы вы могли следить за каждым шагом.",
+      trust3_title: "Надежные материалы",
+      trust3_desc: "Вы можете поехать со мной к поставщику и лично у
