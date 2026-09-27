@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>يوسف للألوميتال والمطابخ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #17191c;
+    --panel: #1f2226;
+    --panel-2: #24272c;
+    --text: #ece9e3;
+    --text-dim: #9a9ea3;
+    --brass: #b98a4e;
+    --brass-soft: #b98a4e33;
+    --line: #34383e;
+    --radius: 2px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f3f1ec;
+      --panel: #ffffff;
+      --panel-2: #ebe7de;
+      --text: #201d18;
+      --text-dim: #6b665c;
+      --brass: #8a6229;
+      --brass-soft: #8a622922;
+      --line: #ddd7cb;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f3f1ec;
+    --panel: #ffffff;
+    --panel-2: #ebe7de;
+    --text: #201d18;
+    --text-dim: #6b665c;
+    --brass: #8a6229;
+    --brass-soft: #8a622922;
+    --line: #ddd7cb;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); height: 100%; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    min-height: 100%;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+
+  /* corner-bracket motif: evokes an aluminum window-frame joint */
+  .bracket {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .bracket::before, .bracket::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--brass);
+  }
+  .bracket::before { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .bracket::after { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+
+  header {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand {
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+  .brand span { color: var(--brass); }
+  .nav-cta {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--brass);
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding: 64px 0 48px;
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 6vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.25;
+    max-width: 15ch;
+  }
+  .hero p {
+    margin-top: 18px;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 46ch;
+  }
+  .hero-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--brass); color: var(--bg); }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
+
+  .strip {
+    margin-top: 40px;
+    padding: 16px 18px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .strip b { color: var(--text); }
+
+  section { padding: 52px 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .section-lede {
+    color: var(--text-dim);
+    max-width: 48ch;
+    margin-bottom: 30px;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .service {
+    padding: 20px;
+    background: var(--panel);
+  }
+  .service h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .service p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .trust-item {
+    background: var(--panel);
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .trust-mark {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--brass);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--brass);
+  }
+  .trust-item h4 { font-size: 0.98rem; font-weight: 700; margin-bottom: 3px; }
+  .trust-item p { color: var(--text-dim); font-size: 0.9rem; }
+
+  .steps { display: flex; flex-direction: column; }
+  .step {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+  }
+  .step:not(:last-child) { border-bottom: 1px solid var(--line); }
+  .step-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--brass-soft);
+    color: var(--brass);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+  .step h4 { font-weight: 700; margin-bottom: 3px; }
+  .step p { color: var(--text-dim); font-size: 0.92rem; }
+
+  .contact-panel {
+    padding: 28px;
+    background: var(--panel-2);
+  }
+  .contact-panel h2 { margin-bottom: 6px; }
+  .contact-panel p { color: var(--text-dim); margin-bottom: 22px; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .contact-row:first-of-type { border-top: none; }
+  .contact-row span:first-child { color: var(--text-dim); }
+  .contact-row a { color: var(--text); font-weight: 700; text-decoration: none; }
+
+  footer {
+    padding: 26px 0 calc(26px + env(safe-area-inset-bottom, 0px));
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (min-width: 640px) {
+    .trust-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">يوسف <span>للألوميتال والمطابخ</span></div>
+    <a class="nav-cta" href="https://wa.me/201208197770" target="_blank" rel="noopener">واتساب</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>مطابخ وشبابيك ألوميتال، مظبوطة من المقاس للتركيب</h1>
+    <p>خبرة 5 سنين في تجميع وصناعة المطابخ وشبابيك الألوميتال. من المعاينة لحد آخر مسمار، الشغل بيتسلّمك جاهز ومضمون.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/201208197770" target="_blank" rel="noopener">اطلب معاينة مجانية</a>
+      <a class="btn-secondary" href="#services">شوف الخدمات</a>
+    </div>
+  </div>
+
+  <div class="strip bracket">
+    <span>💬</span>
+    <div><b>رد سريع على واتساب.</b> ابعت صورة أو مقاس مكانك، وهترجعلك بسعر تقريبي في نفس اليوم.</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>الخدمات</h2>
+    <p class="section-lede">تنفيذ مباشر بدون وسيط، من الفكرة لحد التسليم.</p>
+    <div class="services">
+      <div class="service bracket">
+        <h3>تصنيع وتركيب مطابخ ألوميتال</h3>
+        <p>تصميم يناسب مساحتك، خامة تتحمل الاستخدام اليومي، وتركيب دقيق من غير فروق مقاسات.</p>
+      </div>
+      <div class="service bracket">
+        <h3>تصنيع وتركيب شبابيك ألوميتال</h3>
+        <p>عزل أفضل للصوت والهوا، وتشطيب نضيف من الداخل والخارج.</p>
+      </div>
+      <div class="service bracket">
+        <h3>صيانة وتعديل شغل قديم</h3>
+        <p>تغيير إكسسوارات، إصلاح مفصلات، تعديل مقاسات مطبخ أو شباك موجود بالفعل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>ليه تتعامل معايا</h2>
+    <p class="section-lede">مفيش محل، بس فيه ضمانات واضحة بدل الكلام.</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-mark">✓</div>
+        <div>
+          <h4>دفع مقسّم وآمن</h4>
+          <p>مقدم يغطي الخامة بس، والباقي عند التسليم — مش قبل ما تشوف الشغل.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-mark">✓</div>
+        <div>
+          <h4>صور توثق كل شغلانة</h4>
+          <p>قبل وأثناء وبعد التنفيذ، عشان تتابع كل خطوة أول بأول.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-mark">✓</div>
+        <div>
+          <h4>خامة من مصدر موثوق</h4>
+          <p>ممكن تجيب الخامة معايا من التاجر وتشوفها بعينك قبل التصنيع.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-mark">✓</div>
+        <div>
+          <h4>تواصل مباشر</h4>
+          <p>بترد بنفسي على كل استفسار، من أول السعر لحد بعد التسليم.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>إزاي بنشتغل</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>معاينة ومقاس</h4>
+          <p>تبعتلي صور ومقاسات مبدئية على واتساب، أو أزور المكان لو قريب.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>عرض سعر واضح</h4>
+          <p>سعر نهائي مكتوب، بدون مفاجآت بعد كده.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h4>تنفيذ وتركيب</h4>
+          <p>تصنيع بالمقاس، وتركيب في المكان في الميعاد المتفق عليه.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-panel bracket">
+      <h2>عايز عرض سعر؟</h2>
+      <p>ابعت تفاصيل مكانك على واتساب، وهيوصلك رد بأقرب معاد.</p>
+      <div class="contact-row">
+        <span>واتساب</span>
+        <a href="https://wa.me/201208197770" target="_blank" rel="noopener">تواصل الآن</a>
+      </div>
+      <div class="contact-row">
+        <span>مناطق الخدمة</span>
+        <span>القاهرة والجيزة</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">يوسف للألوميتال والمطابخ</div>
+</footer>
+
+</body>
+</html>
